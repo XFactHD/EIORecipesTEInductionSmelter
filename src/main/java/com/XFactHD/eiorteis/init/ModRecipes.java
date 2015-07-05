@@ -22,25 +22,29 @@ public class ModRecipes
         addSmelterRecipe(10000, new ItemStack(Items.iron_ingot), new ItemStack(Items.ender_pearl), new ItemStack(GameRegistry.findItem("enderio", "ingotPhasedIron")));
         addSmelterRecipe(16000, new ItemStack(Items.gold_ingot), new ItemStack(GameRegistry.findItem("eiorteis", "itemGRMix")), new ItemStack(GameRegistry.findItem("enderio", "ingotEnergeticAlloy")));
         addSmelterRecipe(16000, new ItemStack(GameRegistry.findItem("enderio", "ingotEnergeticAlloy")), new ItemStack(Items.ender_pearl), new ItemStack(GameRegistry.findItem("enderio", "ingotPhasedGold")));
-        addSmelterRecipe(10000, new ItemStack(GameRegistry.findItem(null, "ingotSteel")), new ItemStack(GameRegistry.findItem(null, "itemSilicon")), new ItemStack(GameRegistry.findItem("enderio", "ingotElectricalSteel")));
-        addSmelterRecipe(16000, new ItemStack(Items.redstone), new ItemStack(GameRegistry.findItem(null, "itemSilicon")), new ItemStack(GameRegistry.findItem("enderio", "ingotRedstoneAlloy")));
-        addSmelterRecipe(20000, new ItemStack(GameRegistry.findItem(null, "ingotSteel")), new ItemStack(Blocks.obsidian), new ItemStack(GameRegistry.findItem("enderio", "ingotDarkSteel")));
+        addSmelterRecipe(10000, new ItemStack(GameRegistry.findItem("eiorteis", "ingotSteel")), new ItemStack(GameRegistry.findItem("enderio", "itemSilicon")), new ItemStack(GameRegistry.findItem("enderio", "ingotElectricalSteel")));
+        addSmelterRecipe(16000, new ItemStack(Items.redstone), new ItemStack(GameRegistry.findItem("enderio", "itemSilicon")), new ItemStack(GameRegistry.findItem("enderio", "ingotRedstoneAlloy")));
+        addSmelterRecipe(20000, new ItemStack(GameRegistry.findItem("eiorteis", "ingotSteel")), new ItemStack(Blocks.obsidian), new ItemStack(GameRegistry.findItem("enderio", "ingotDarkSteel")));
         addSmelterRecipe(10000, new ItemStack(Items.gold_ingot), new ItemStack(Blocks.soul_sand), new ItemStack(GameRegistry.findItem("enderio", "ingotSoularium")));
+        addSmelterRecipe( 5000, new ItemStack(Items.iron_ingot), new ItemStack(GameRegistry.findItem("ThermalExpansion", "dustCoal")), new ItemStack(GameRegistry.findItem("eiorteis", "ingotSteel")));
     }
 
-    public static void addSmelterRecipe(int energy, ItemStack primaryInput, ItemStack secondaryInput, ItemStack primaryOutput)
+    public static void addSmelterRecipe(int paramInt, ItemStack paramItemStack1, ItemStack paramItemStack2, ItemStack paramItemStack3)
     {
+        if ((paramItemStack1 == null) || (paramItemStack2 == null) || (paramItemStack3 == null))
+        {
+            return;
+        }
         NBTTagCompound toSend = new NBTTagCompound();
 
-        toSend.setInteger("energy", energy);
+        toSend.setInteger("energy", paramInt);
         toSend.setTag("primaryInput", new NBTTagCompound());
         toSend.setTag("secondaryInput", new NBTTagCompound());
         toSend.setTag("primaryOutput", new NBTTagCompound());
-        toSend.setTag("secondaryOutput", new NBTTagCompound());
-
-        primaryInput.writeToNBT(toSend.getCompoundTag("primaryInput"));
-        secondaryInput.writeToNBT(toSend.getCompoundTag("secondaryInput"));
-        primaryOutput.writeToNBT(toSend.getCompoundTag("primaryOutput"));
+        
+        paramItemStack1.writeToNBT(toSend.getCompoundTag("primaryInput"));
+        paramItemStack2.writeToNBT(toSend.getCompoundTag("secondaryInput"));
+        paramItemStack3.writeToNBT(toSend.getCompoundTag("primaryOutput"));
 
         FMLInterModComms.sendMessage("ThermalExpansion", "SmelterRecipe", toSend);
     }

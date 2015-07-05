@@ -21,13 +21,14 @@ public class eiorteis
     {
         LogHelper.info("Hello Minecraft!");
         ModItems.init();
+        //ModRecipes.init();
         LogHelper.info("PreInit complete");
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        ModRecipes.init();
+        //ModRecipes.init();
         OreDictHelper.init();
         LogHelper.info("Init complete");
     }
@@ -35,6 +36,7 @@ public class eiorteis
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        ModRecipes.init();
         LogHelper.info("PostInit complete");
     }
 }
