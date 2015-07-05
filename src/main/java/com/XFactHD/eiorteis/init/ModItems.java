@@ -7,9 +7,11 @@ import net.minecraft.item.Item;
 public class ModItems
 {
     public static final Item GRMix = new itemGRMix();
+    public static final Item ingotSteel = new itemIngotSteelBase();
 
     public static void init()
     {
+        GameRegistry.registerItem(ingotSteel, "itemIngotSteel");
         GameRegistry.registerItem(GRMix, "itemGRMix");
     }
 }
