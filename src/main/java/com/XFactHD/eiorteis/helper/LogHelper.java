@@ -1,6 +1,5 @@
 package com.XFactHD.eiorteis.helper;
 
-import com.XFactHD.eiorteis.helper.Reference;
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 

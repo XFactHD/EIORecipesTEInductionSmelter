@@ -1,2 +1,10 @@
 item.eiorteis:itemGRMix.name=Glowstone-Redstone-Mischung
-item.eiorteis:itemIngotSteel.name=Stahlbarren
+
+item.eiorteis:itemIngotConductiveIron.name=Leitendes Eisen
+item.eiorteis:itemIngotPhasedIron.name=Pulsierendes Eisen
+item.eiorteis:itemIngotEnergeticAlloy.name=Energetische Legierung
+item.eiorteis:itemIngotVibrantAlloy.name=Dynamische Legierung
+item.eiorteis:itemIngotElectricalSteel.name=Elektrischer Stahl
+item.eiorteis:itemIngotRedstoneAlloy.name=RedstoneLegierung
+item.eiorteis:itemIngotDarkSteel.name=Dunkelstahl
+item.eiorteis:itemIngotSoularium.name=Soularium
