@@ -1,5 +1,6 @@
 package com.XFactHD.eiorteis.helper;
 
+import com.XFactHD.eiorteis.init.ModItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -40,7 +41,15 @@ public class MetaItemGetter
         Item dustItem = GameRegistry.findItem("ThermalFoundation", "material");
         dustCoal = new ItemStack(dustItem, 1, 2);
 
-        ingotSteelBase = new ItemStack(GameRegistry.findItem("eiorteis", "itemIngotSteelBase"));
+        if (GameRegistry.findItem(null, "ingotSteel") == null)
+        {
+            ingotSteelBase = new ItemStack(ModItems.ingotSteelBase);
+        }
+        else
+        {
+            ingotSteelBase = new ItemStack(GameRegistry.findItem(null, "ingotSteel"));
+        }
+
         grMix = new ItemStack(GameRegistry.findItem("eiorteis", "itemGRMix"));
     }
 }

@@ -11,7 +11,15 @@ public class ModItems
 
     public static void init()
     {
-        GameRegistry.registerItem(ingotSteelBase, "itemIngotSteelBase");
         GameRegistry.registerItem(GRMix, "itemGRMix");
+
+        if (GameRegistry.findItem(null, "ingotSteel") == null)
+        {
+            GameRegistry.registerItem(ingotSteelBase, "itemIngotSteelBase");
+        }
+        else
+        {
+            return;
+        }
     }
 }

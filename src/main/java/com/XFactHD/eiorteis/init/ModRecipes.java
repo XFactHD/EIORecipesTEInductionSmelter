@@ -27,7 +27,11 @@ public class ModRecipes
         addSmelterRecipe(2000, new ItemStack(Items.redstone), MetaItemGetter.itemSilicon, MetaItemGetter.redstoneAlloy);
         addSmelterRecipe(6000, MetaItemGetter.ingotSteelBase, new ItemStack(Blocks.obsidian), MetaItemGetter.darkSteel);
         addSmelterRecipe(2000, new ItemStack(Items.gold_ingot), new ItemStack(Blocks.soul_sand), MetaItemGetter.soularium);
-        addSmelterRecipe(1000, new ItemStack(Items.iron_ingot), MetaItemGetter.dustCoal, MetaItemGetter.ingotSteelBase);
+
+        if (GameRegistry.findItem(null, "ingotSteel") == null)
+        {
+            addSmelterRecipe(1000, new ItemStack(Items.iron_ingot), MetaItemGetter.dustCoal, MetaItemGetter.ingotSteelBase);
+        }
     }
 
     public static void addSmelterRecipe(int paramInt, ItemStack paramItemStack1, ItemStack paramItemStack2, ItemStack paramItemStack3)
