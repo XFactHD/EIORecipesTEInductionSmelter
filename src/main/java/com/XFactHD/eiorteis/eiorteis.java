@@ -15,17 +15,17 @@
 
 package com.XFactHD.eiorteis;
 
+import com.XFactHD.eiorteis.helper.ConfigHandler;
 import com.XFactHD.eiorteis.helper.MetaItemGetter;
 import com.XFactHD.eiorteis.helper.LogHelper;
 import com.XFactHD.eiorteis.helper.Reference;
 import com.XFactHD.eiorteis.init.ModItems;
 import com.XFactHD.eiorteis.init.ModRecipes;
-import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
 public class eiorteis
@@ -38,6 +38,8 @@ public class eiorteis
     {
         LogHelper.info("Hello Minecraft!");
         ModItems.init();
+        ConfigHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigHandler());
         LogHelper.info("PreInit complete");
     }
 
