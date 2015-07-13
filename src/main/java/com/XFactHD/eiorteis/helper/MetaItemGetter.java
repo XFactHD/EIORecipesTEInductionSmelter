@@ -19,6 +19,14 @@ import com.XFactHD.eiorteis.init.ModItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+
+import static net.minecraftforge.oredict.OreDictionary.itemMatches;
+
+import java.util.ArrayList;
+
+
 
 public class MetaItemGetter
 {
@@ -56,13 +64,13 @@ public class MetaItemGetter
         Item dustItem = GameRegistry.findItem("ThermalFoundation", "material");
         dustCoal = new ItemStack(dustItem, 1, 2);
 
-        if (GameRegistry.findItem(null, "ingotSteel") == null)
+        if (!(OreDictionary.getOres("ingotSteel").isEmpty()))
         {
-            ingotSteelBase = new ItemStack(ModItems.ingotSteelBase);
+            ingotSteelBase = OreDictionary.getOres("ingotSteel").get(0);
         }
         else
         {
-            ingotSteelBase = new ItemStack(GameRegistry.findItem(null, "ingotSteel"));
+            ingotSteelBase = new ItemStack(ModItems.ingotSteelBase);
         }
 
         grMix = new ItemStack(GameRegistry.findItem("eiorteis", "itemGRMix"));
