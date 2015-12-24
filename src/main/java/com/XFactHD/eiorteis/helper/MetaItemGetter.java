@@ -43,7 +43,7 @@ public class MetaItemGetter
 
     public static ItemStack dustCoal;
 
-    public static ItemStack ingotSteelBase;
+    public static ItemStack ingotSteel;
     public static ItemStack grMix;
 
     public static void init()
@@ -66,11 +66,11 @@ public class MetaItemGetter
 
         if (!(OreDictionary.getOres("ingotSteel").isEmpty()))
         {
-            ingotSteelBase = OreDictionary.getOres("ingotSteel").get(0);
+            ingotSteel = OreDictionary.getOres("ingotSteel").get(0);
         }
         else
         {
-            ingotSteelBase = new ItemStack(ModItems.ingotSteelBase);
+            ingotSteel = new ItemStack(ModItems.ingotSteelBase);
         }
 
         grMix = new ItemStack(GameRegistry.findItem("eiorteis", "itemGRMix"));

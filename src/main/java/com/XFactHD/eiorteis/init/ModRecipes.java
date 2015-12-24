@@ -39,14 +39,14 @@ public class ModRecipes
         addSmelterRecipe(ConfigHandler.energyPhasedIron, new ItemStack(Items.iron_ingot), new ItemStack(Items.ender_pearl), MetaItemGetter.phasedIron);
         addSmelterRecipe(ConfigHandler.energyEnergeticAlloy, new ItemStack(Items.gold_ingot), MetaItemGetter.grMix, MetaItemGetter.energeticAlloy);
         addSmelterRecipe(ConfigHandler.energyPhasedGold, MetaItemGetter.energeticAlloy, new ItemStack(Items.ender_pearl), MetaItemGetter.phasedGold);
-        addSmelterRecipe(ConfigHandler.energyElectricalSteel, MetaItemGetter.ingotSteelBase, MetaItemGetter.itemSilicon, MetaItemGetter.electricalSteel);
+        addSmelterRecipe(ConfigHandler.energyElectricalSteel, MetaItemGetter.ingotSteel, MetaItemGetter.itemSilicon, MetaItemGetter.electricalSteel);
         addSmelterRecipe(ConfigHandler.energyRedstoneAlloy, new ItemStack(Items.redstone), MetaItemGetter.itemSilicon, MetaItemGetter.redstoneAlloy);
-        addSmelterRecipe(ConfigHandler.energyDarkSteel, MetaItemGetter.ingotSteelBase, new ItemStack(Blocks.obsidian), MetaItemGetter.darkSteel);
+        addSmelterRecipe(ConfigHandler.energyDarkSteel, MetaItemGetter.ingotSteel, new ItemStack(Blocks.obsidian), MetaItemGetter.darkSteel);
         addSmelterRecipe(ConfigHandler.energySoularium, new ItemStack(Items.gold_ingot), new ItemStack(Blocks.soul_sand), MetaItemGetter.soularium);
 
         if (GameRegistry.findItem(null, "ingotSteel") == null)
         {
-            addSmelterRecipe(1000, new ItemStack(Items.iron_ingot), MetaItemGetter.dustCoal, MetaItemGetter.ingotSteelBase);
+            addSmelterRecipe(1000, new ItemStack(Items.iron_ingot), MetaItemGetter.dustCoal, MetaItemGetter.ingotSteel);
         }
     }
 
