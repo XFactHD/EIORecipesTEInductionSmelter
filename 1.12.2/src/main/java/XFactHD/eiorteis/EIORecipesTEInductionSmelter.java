@@ -17,6 +17,7 @@ package XFactHD.eiorteis;
 
 import XFactHD.eiorteis.common.*;
 import XFactHD.eiorteis.common.util.*;
+import cofh.thermalexpansion.util.managers.machine.PulverizerManager;
 import cofh.thermalexpansion.util.managers.machine.SmelterManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -25,6 +26,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
 public class EIORecipesTEInductionSmelter
@@ -52,6 +54,26 @@ public class EIORecipesTEInductionSmelter
         SmelterManager.addRecipe(ConfigHandler.energyElectricalSteel, MetaItemGetter.ingotSteel,       MetaItemGetter.itemSilicon,       MetaItemGetter.electricalSteel);
         SmelterManager.addRecipe(ConfigHandler.energyRedstoneAlloy  , MetaItemGetter.itemSilicon,      new ItemStack(Items.REDSTONE),    MetaItemGetter.redstoneAlloy);
         SmelterManager.addRecipe(ConfigHandler.energyDarkSteel      , MetaItemGetter.ingotSteel,       new ItemStack(Blocks.OBSIDIAN),   MetaItemGetter.darkSteel);
+
+        if (ConfigHandler.addSiliconRecipe)
+        {
+            PulverizerManager.addRecipe(ConfigHandler.energySiliconSingle , new ItemStack(Blocks.SAND), MetaItemGetter.itemSilicon);
+
+            if (MetaItemGetter.compSandDouble != null)
+            {
+                ItemStack siliconDouble = MetaItemGetter.itemSilicon.copy();
+                siliconDouble.setCount(9);
+                PulverizerManager.addRecipe(ConfigHandler.energySiliconDouble , MetaItemGetter.compSandDouble, siliconDouble);
+            }
+
+            if (MetaItemGetter.compSandTripple != null)
+            {
+                ItemStack siliconTripple = MetaItemGetter.itemSilicon.copy();
+                siliconTripple.setCount(27);
+                PulverizerManager.addRecipe(ConfigHandler.energySiliconTripple, MetaItemGetter.compSandTripple, siliconTripple);
+            }
+        }
+
         LogHelper.info("Init complete");
     }
 }

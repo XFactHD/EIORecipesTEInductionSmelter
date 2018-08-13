@@ -18,6 +18,8 @@ package XFactHD.eiorteis.common;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.List;
+
 public class MetaItemGetter
 {
     public static ItemStack electricalSteel;
@@ -26,6 +28,9 @@ public class MetaItemGetter
     public static ItemStack darkSteel;
     public static ItemStack itemSilicon;
     public static ItemStack ingotSteel;
+
+    public static ItemStack compSandDouble;
+    public static ItemStack compSandTripple;
 
     @SuppressWarnings("ConstantConditions")
     public static void init()
@@ -36,5 +41,14 @@ public class MetaItemGetter
         darkSteel = OreDictionary.getOres("ingotDarkSteel").get(0);
         itemSilicon = OreDictionary.getOres("itemSilicon").get(0);
         ingotSteel = OreDictionary.getOres("ingotSteel").get(0);
+
+        compSandDouble = getFirstOrNull("compressed1xSand");
+        compSandTripple = getFirstOrNull("compressed2xSand");
+    }
+
+    private static ItemStack getFirstOrNull(String oreID)
+    {
+        List<ItemStack> ores = OreDictionary.getOres(oreID);
+        return ores.isEmpty() ? null : ores.get(0);
     }
 }
