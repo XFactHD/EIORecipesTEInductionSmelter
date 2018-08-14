@@ -15,11 +15,13 @@
 
 package XFactHD.eiorteis;
 
+import cofh.thermalexpansion.util.managers.machine.FurnaceManager;
 import cofh.thermalexpansion.util.managers.machine.PulverizerManager;
 import cofh.thermalexpansion.util.managers.machine.SmelterManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -64,7 +66,9 @@ public class EIORecipesTEInductionSmelter
         SmelterManager.addRecipe(ConfigHandler.energyRedstoneAlloy        , MetaItemGetter.itemSilicon, new ItemStack(Items.REDSTONE), MetaItemGetter.redstoneAlloy);
         SmelterManager.addRecipe(ConfigHandler.energyDarkSteel            , MetaItemGetter.ingotSteel, new ItemStack(Blocks.OBSIDIAN), MetaItemGetter.darkSteel);
         SmelterManager.addRecipe(ConfigHandler.energySoularium            , new ItemStack(Items.GOLD_INGOT), new ItemStack(Blocks.SOUL_SAND), MetaItemGetter.soularium);
-
+    
+        FurnaceManager.addRecipe(ConfigHandler.energyClearGlass           , new ItemStack(Blocks.GLASS), MetaItemGetter.blockClearGlass);
+        
         if (ConfigHandler.addSiliconRecipe)
         {
             PulverizerManager.addRecipe(ConfigHandler.energySiliconSingle , new ItemStack(Blocks.SAND), MetaItemGetter.itemSilicon);
