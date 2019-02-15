@@ -21,7 +21,11 @@ public class ConfigHandler
     public static int energySiliconSingle   = 0;
     public static int energySiliconDouble   = 0;
     public static int energySiliconTripple  = 0;
-    public static boolean addSiliconRecipe = false;
+    public static int energyClearGlass      = 0;
+    public static int energyXPJuice         = 0;
+    public static boolean addSiliconRecipe  = false;
+    public static boolean addGlassRecipe    = false;
+    public static boolean addXPJuiceRecipe  = false;
 
     public static void init(File configFile)
     {
@@ -56,6 +60,12 @@ public class ConfigHandler
         energySiliconSingle   = configuration.getInt("energySiliconSingle", "Energy Consumption", 720, 1, 100000, "Sets the energy consumption for the production of Silicon from Sand");
         energySiliconDouble   = configuration.getInt("energySiliconDouble", "Energy Consumption", 7200, 1, 1000000, "Sets the energy consumption for the production of Silicon from Compressed Sand");
         energySiliconTripple  = configuration.getInt("energySiliconTripple", "Energy Consumption", 72000, 1, 1000000, "Sets the energy consumption for the production of Silicon from Double Compressed Sand");
+
+        addGlassRecipe        = configuration.getBoolean("addGlassRecipe", "Features", true, "If true, a recipe to create Quite Clear Glass will be added to the Induction Smelter");
+        energyClearGlass      = configuration.getInt("energyClearGlass", "Energy Consumption", 2500, 1, 100000, "Sets the energy consumption for the production of Quite Clear Glass");
+
+        addXPJuiceRecipe      = configuration.getBoolean("addXPJuiceRecipe", "Features", true, "If true and Woot is installed, a recipe to create Liquid XP from Woot XP Shards will be added to the Magma Crucible");
+        energyXPJuice         = configuration.getInt("energyXPJuice", "Energy Consumption", 20, 1, 10000, "Sets the energy consumption for the production of Liquid XP");
 
         if (configuration.hasChanged())
         {

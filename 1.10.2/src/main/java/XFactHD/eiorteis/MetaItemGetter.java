@@ -15,7 +15,10 @@
 
 package XFactHD.eiorteis;
 
+import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -41,6 +44,11 @@ public class MetaItemGetter
     public static ItemStack compSandDouble;
     public static ItemStack compSandTripple;
 
+    public static ItemStack clearGlass;
+
+    public static ItemStack xpShard;
+    public static FluidStack xpJuice;
+
     @SuppressWarnings("ConstantConditions")
     public static void init()
     {
@@ -61,6 +69,13 @@ public class MetaItemGetter
 
         compSandDouble = getFirstOrNull("compressed1xSand");
         compSandTripple = getFirstOrNull("compressed2xSand");
+
+        Block glass = Block.REGISTRY.getObject(new ResourceLocation("EnderIO", "blockFusedQuartz"));
+        clearGlass = new ItemStack(glass, 1, 1);
+
+        Item shard = Item.REGISTRY.getObject(new ResourceLocation("Woot", "xpShard"));
+        xpShard = shard != null ? new ItemStack(shard) : null;
+        xpJuice = FluidRegistry.getFluidStack("xpjuice", 320);
     }
 
     private static ItemStack getFirstOrNull(String oreID)

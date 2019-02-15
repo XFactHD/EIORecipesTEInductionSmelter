@@ -15,12 +15,14 @@
 
 package XFactHD.eiorteis;
 
+import cofh.thermalexpansion.util.managers.machine.CrucibleManager;
 import cofh.thermalexpansion.util.managers.machine.PulverizerManager;
 import cofh.thermalexpansion.util.managers.machine.SmelterManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -82,6 +84,16 @@ public class EIORecipesTEInductionSmelter
                 siliconTripple.stackSize = 27;
                 PulverizerManager.addRecipe(ConfigHandler.energySiliconTripple, MetaItemGetter.compSandTripple, siliconTripple);
             }
+        }
+
+        if (ConfigHandler.addGlassRecipe)
+        {
+            SmelterManager.addRecipe(ConfigHandler.energyClearGlass, new ItemStack(Blocks.GLASS), new ItemStack(Blocks.SAND), MetaItemGetter.clearGlass);
+        }
+
+        if (ConfigHandler.addXPJuiceRecipe && Loader.isModLoaded("Woot"))
+        {
+            CrucibleManager.addRecipe(ConfigHandler.energyXPJuice, MetaItemGetter.xpShard, MetaItemGetter.xpJuice);
         }
 
         LogHelper.info("Init complete");
