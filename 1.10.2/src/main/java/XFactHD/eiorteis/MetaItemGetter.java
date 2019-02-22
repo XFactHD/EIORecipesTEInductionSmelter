@@ -67,8 +67,8 @@ public class MetaItemGetter
         Item materialItem = Item.REGISTRY.getObject(new ResourceLocation("EnderIO", "itemMaterial"));
         itemSilicon = new ItemStack(materialItem, 1, 0);
         
-        Block clearGlass = Block.REGISTRY.getObject(new ResourceLocation("EnderIO", "blockFusedQuartz_fusedGlass"));
-        blockClearGlass = new ItemStack(clearGlass, 1, 7);
+        Block clearGlassBase = Block.REGISTRY.getObject(new ResourceLocation("EnderIO", "blockFusedQuartz_fusedGlass"));
+        blockClearGlass = new ItemStack(clearGlassBase, 1, 7);
 
         ingotSteel = getFirstOrNull("ingotSteel");
 

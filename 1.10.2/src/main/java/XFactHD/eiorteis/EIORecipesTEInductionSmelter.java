@@ -15,17 +15,13 @@
 
 package XFactHD.eiorteis;
 
-<<<<<<< HEAD
 import cofh.thermalexpansion.util.managers.machine.CrucibleManager;
-=======
 import cofh.thermalexpansion.util.managers.machine.FurnaceManager;
->>>>>>> 98c99032197f16b32cb5ebb4010725dc3cdb782b
 import cofh.thermalexpansion.util.managers.machine.PulverizerManager;
 import cofh.thermalexpansion.util.managers.machine.SmelterManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -33,7 +29,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)

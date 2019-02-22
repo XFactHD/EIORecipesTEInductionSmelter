@@ -22,7 +22,6 @@ public class ConfigHandler
     public static int energySiliconSingle   = 0;
     public static int energySiliconDouble   = 0;
     public static int energySiliconTripple  = 0;
-    public static int energyClearGlass      = 0;
     public static int energyXPJuice         = 0;
     public static boolean addSiliconRecipe  = false;
     public static boolean addGlassRecipe    = false;
