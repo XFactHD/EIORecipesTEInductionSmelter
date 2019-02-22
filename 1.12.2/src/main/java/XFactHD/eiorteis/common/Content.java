@@ -25,11 +25,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class Content
 {
     public static Item itemGRMix;
+    public static Item itemReinfDarkSteel;
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
     {
         event.getRegistry().register(itemGRMix = new ItemGRMix());
+        event.getRegistry().register(itemReinfDarkSteel = new ItemReinforcedDarkSteel());
     }
 
     @SubscribeEvent
@@ -37,5 +39,6 @@ public class Content
     public static void registerModels(ModelRegistryEvent event)
     {
         ModelLoader.setCustomModelResourceLocation(itemGRMix, 0, new ModelResourceLocation(itemGRMix.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(itemReinfDarkSteel, 0, new ModelResourceLocation(itemReinfDarkSteel.getRegistryName(), "inventory"));
     }
 }

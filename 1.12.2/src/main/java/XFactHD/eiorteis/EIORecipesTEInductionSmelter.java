@@ -17,16 +17,17 @@ package XFactHD.eiorteis;
 
 import XFactHD.eiorteis.common.*;
 import XFactHD.eiorteis.common.util.*;
+import cofh.thermalexpansion.util.managers.machine.CrucibleManager;
 import cofh.thermalexpansion.util.managers.machine.PulverizerManager;
 import cofh.thermalexpansion.util.managers.machine.SmelterManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
 public class EIORecipesTEInductionSmelter
@@ -50,10 +51,11 @@ public class EIORecipesTEInductionSmelter
     public void init(FMLInitializationEvent event)
     {
         MetaItemGetter.init();
-        SmelterManager.addRecipe(ConfigHandler.energyEnergeticAlloy , new ItemStack(Items.GOLD_INGOT), new ItemStack(Content.itemGRMix), MetaItemGetter.energeticAlloy);
-        SmelterManager.addRecipe(ConfigHandler.energyElectricalSteel, MetaItemGetter.ingotSteel,       MetaItemGetter.itemSilicon,       MetaItemGetter.electricalSteel);
-        SmelterManager.addRecipe(ConfigHandler.energyRedstoneAlloy  , MetaItemGetter.itemSilicon,      new ItemStack(Items.REDSTONE),    MetaItemGetter.redstoneAlloy);
-        SmelterManager.addRecipe(ConfigHandler.energyDarkSteel      , MetaItemGetter.ingotSteel,       new ItemStack(Blocks.OBSIDIAN),   MetaItemGetter.darkSteel);
+        SmelterManager.addRecipe(ConfigHandler.energyEnergeticAlloy       , new ItemStack(Items.GOLD_INGOT), new ItemStack(Content.itemGRMix), MetaItemGetter.energeticAlloy);
+        SmelterManager.addRecipe(ConfigHandler.energyElectricalSteel      , MetaItemGetter.ingotSteel, MetaItemGetter.itemSilicon, MetaItemGetter.electricalSteel);
+        SmelterManager.addRecipe(ConfigHandler.energyRedstoneAlloy        , MetaItemGetter.itemSilicon, new ItemStack(Items.REDSTONE), MetaItemGetter.redstoneAlloy);
+        SmelterManager.addRecipe(ConfigHandler.energyReinforcedDarkSteel  , MetaItemGetter.darkSteel, new ItemStack(Blocks.OBSIDIAN), new ItemStack(Content.itemReinfDarkSteel));
+        SmelterManager.addRecipe(ConfigHandler.energyEndSteel             , new ItemStack(Content.itemReinfDarkSteel), new ItemStack(Blocks.END_STONE), MetaItemGetter.endSteel);
 
         if (ConfigHandler.addSiliconRecipe)
         {
@@ -72,6 +74,16 @@ public class EIORecipesTEInductionSmelter
                 siliconTripple.setCount(27);
                 PulverizerManager.addRecipe(ConfigHandler.energySiliconTripple, MetaItemGetter.compSandTripple, siliconTripple);
             }
+        }
+
+        if (ConfigHandler.addGlassRecipe)
+        {
+            SmelterManager.addRecipe(ConfigHandler.energyClearGlass, new ItemStack(Blocks.GLASS), new ItemStack(Blocks.SAND), MetaItemGetter.blockClearGlass);
+        }
+
+        if (ConfigHandler.addXPJuiceRecipe && Loader.isModLoaded("Woot"))
+        {
+            CrucibleManager.addRecipe(ConfigHandler.energyXPJuice, MetaItemGetter.xpShard, MetaItemGetter.xpJuice);
         }
 
         LogHelper.info("Init complete");

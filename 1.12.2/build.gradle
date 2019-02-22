@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "3.1"
+version = "3.2"
 group = "XFactHD.eiorteis"
 archivesBaseName = "eiorteis"
 
@@ -20,7 +20,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.2.2625"
+    version = "1.12.2-14.23.5.2814"
     runDir = "run"
     mappings = "snapshot_20171003"
 }

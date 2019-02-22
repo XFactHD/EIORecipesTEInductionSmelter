@@ -15,7 +15,12 @@
 
 package XFactHD.eiorteis.common;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.List;
@@ -26,11 +31,19 @@ public class MetaItemGetter
     public static ItemStack energeticAlloy;
     public static ItemStack redstoneAlloy;
     public static ItemStack darkSteel;
+    public static ItemStack endSteel;
+
     public static ItemStack itemSilicon;
+
+    public static ItemStack blockClearGlass;
+
     public static ItemStack ingotSteel;
 
     public static ItemStack compSandDouble;
     public static ItemStack compSandTripple;
+
+    public static ItemStack xpShard;
+    public static FluidStack xpJuice;
 
     @SuppressWarnings("ConstantConditions")
     public static void init()
@@ -39,11 +52,20 @@ public class MetaItemGetter
         energeticAlloy = OreDictionary.getOres("ingotEnergeticAlloy").get(0);
         redstoneAlloy = OreDictionary.getOres("ingotRedstoneAlloy").get(0);
         darkSteel = OreDictionary.getOres("ingotDarkSteel").get(0);
-        itemSilicon = OreDictionary.getOres("itemSilicon").get(0);
+        endSteel = OreDictionary.getOres("ingotEndSteel").get(0);
         ingotSteel = OreDictionary.getOres("ingotSteel").get(0);
+
+        itemSilicon = OreDictionary.getOres("itemSilicon").get(0);
 
         compSandDouble = getFirstOrNull("compressed1xSand");
         compSandTripple = getFirstOrNull("compressed2xSand");
+
+        Block glass = Block.REGISTRY.getObject(new ResourceLocation("EnderIO", "block_fused_glass"));
+        blockClearGlass = new ItemStack(glass, 1, 0);
+
+        Item shard = Item.REGISTRY.getObject(new ResourceLocation("Woot", "xpShard"));
+        xpShard = shard != null ? new ItemStack(shard) : null;
+        xpJuice = FluidRegistry.getFluidStack("xpjuice", 320);
     }
 
     private static ItemStack getFirstOrNull(String oreID)
